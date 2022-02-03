@@ -1,0 +1,146 @@
+html {
+    font-size: 62.5%;
+    /* 1rem = 10px*/
+}
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+    color: white;
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0px;
+    padding: 0px;
+}
+
+h2 {
+    color: rgb(71, 66, 67);
+    padding: 1rem;
+    margin: 2rem;
+    text-align: center; 
+}
+
+sup {
+    text-transform: lowercase;
+}
+/***** basic grid setup*****/
+.container {
+    border-radius: 10px;
+    min-height: 50vh;
+    max-width: 60%;
+    margin : 0 auto ;
+    box-shadow: 0.5rem 0.5rem 5rem 0.5rem rgba(0, 0, 0, 0.250);
+    padding: 2rem;
+
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.item {
+    /*centering text*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.bg-blue {
+    background-image: linear-gradient(to right bottom ,rgb(33, 105, 240) 10%, blueviolet);
+}
+.bg-pink {
+    background-image: linear-gradient(to right bottom ,rgb(238, 145, 226) 10%, rgb(240, 22, 174));
+}
+.bg-green {
+    background-image: linear-gradient(to right bottom ,rgb(149, 245, 177) 10%, rgb(43, 226, 98));
+}
+/***** grid 1 setup : line numbers *****/
+.grid-nums {
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.item-1-nums {
+    grid-row: 1 / 2 ;
+    grid-column : 1 / 4 ;
+}
+
+.item-2-nums {
+    grid-row : 2 / 4 ;
+    grid-column : 1 / span 2 ;
+}
+
+.item-3-nums {
+    grid-row : 2 / 4 ;
+    grid-column : 3 / 4 ;
+}
+
+.item-4-nums {
+    grid-row : 4 / 5 ;
+    grid-column : 1 / span 3 ;
+}
+/***** grid 2 setup : line names *****/
+
+/*
+    *l1s : line 1 start
+    *cls  column start
+*/
+
+.grid-lines {
+    grid-template-rows: [l1s] 1fr [l1e l2s] 1fr [l2e l3s] 1fr [l3e l4s] 1fr [l4e];
+    grid-template-columns: repeat(3, [cls] 1fr [cle] );
+}
+
+.item-1-lines {
+    grid-row: l1s / l2s ;
+    grid-column : cls 1/ cle 3 ;
+}
+
+.item-2-lines {
+    grid-row : l2s / l3e ;
+    grid-column : cls 1 / cle 2 ;
+}
+
+.item-3-lines {
+    grid-row : l2s / l3e ;
+    grid-column : cls 3 / cle 3 ;
+}
+
+.item-4-lines {
+    grid-row : l4s / l4e ;
+    grid-column : cls 1 / cle 3 ;
+}
+
+/***** grid 3 setup : area names *****/
+
+.grid-areas {
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-areas: "head head head"
+                         "main main side"
+                         "main main side"
+                         "foot foot foot";
+}
+
+.item-1-area {
+    grid-area: head;
+}
+.item-2-area {
+    grid-area: main;
+}
+.item-3-area {
+    grid-area: side;
+}
+.item-4-area {
+    grid-area: foot;
+}
+
